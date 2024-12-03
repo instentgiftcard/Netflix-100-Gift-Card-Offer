@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix $100 Gift Card Offer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f4a261, #2a9d8f);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            text-align: center;
+            color: white;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('your-image-url.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px);
+            z-index: -1;
+        }
+        .content {
+            padding: 40px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: bounce 1s infinite alternate;
+        }
+        .claim-btn {
+            padding: 15px 30px;
+            background-color: #e76f51;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+            transition: background-color 0.3s ease;
+        }
+        .claim-btn:hover {
+            background-color: #f4a261;
+        }
+        .three-line-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 12px;
+            border-radius: 5px;
+        }
+        .offer-description {
+            margin-top: 30px;
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .countdown {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #e76f51;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .popup .close-btn {
+            background-color: #e76f51;
+            padding: 10px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .show-popup {
+            display: block;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .show-popup {
+            display: block;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+            }
+            .title {
+                font-size: 24px;
+            }
+            .claim-btn {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
+            .offer-description {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="background-image"></div>
+        <div class="content">
+            <div class="three-line-btn" onclick="window.location.href='https://optilinklock.com/1759553'">☰</div>
+            <h1 class="title">Get Your Netflix $100 Gift Card!</h1>
+            <img src="https://i.ibb.co/jM81R8D/c398d5e01f78.gif" alt="Netflix Gift Card" style="width: 100%; border-radius: 10px;">
+            <p class="offer-description">Enjoy unlimited streaming of movies and TV shows with Netflix. This $100 gift card is the perfect way to enjoy your favorite content! Don't miss this limited time offer!</p>
+            <button class="claim-btn" onclick="window.location.href='https://optilinklock.com/1759553'">Claim Now</button>
+            <div class="countdown" id="countdown"></div>
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <p>4578 people have already claimed this offer!</p>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        // Countdown Timer
+        const countdownDate = new Date().getTime() + 24 * 60 * 60 * 1000; // 24 hours from now
+        const countdownElement = document.getElementById("countdown");
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = countdownDate - now;
+            if (timeLeft <= 0) {
+                countdownElement.innerHTML = "Offer Expired";
+                clearInterval(countdownInterval);
+            } else {
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                countdownElement.innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Pop-up
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById("popup").classList.add("show-popup");
+            }, 3000); // Show popup after 3 seconds
+        };
+
+        function closePopup() {
+            document.getElementById("popup").classList.remove("show-popup");
+        }
+    </script>
+
+</body>
+</html>
